@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HritikPedia | No BS Knowledge</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"], // Added a display font for character
+            },
+            colors: {
+              accent: "#a4133c",
+              bg: "#1a1a1a",
+              surface: "#1e1e1e",
+              text: "#e0e0e0",
+              subtext: "#a0a0a0",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #8b7f7f;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #615b5b;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d69e80;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-bg text-text min-h-screen flex flex-col items-center py-12 px-4 selection:bg-accent selection:text-black"
+  >
+    <div class="text-center mb-10 w-full max-w-2xl mt-10">
+      <img
+        class="mb-8 w-[120px] mx-auto"
+        src="https://d2clawv67efefq.cloudfront.net/ccbp-dynamic-webapps/wiki-logo-img.png"
+      />
+      <h1
+        class="text-5xl md:text-6xl font-display font-bold tracking-tight mb-4 text-white"
+      >
+        Hritik<span class="text-accent">Pedia</span>
+      </h1>
+
+      <div class="flex items-center justify-center gap-3">
+        <div class="h-[1px] w-8 bg-subtext/30"></div>
+        <p
+          class="text-subtext text-lg font-mono tracking-wide uppercase text-xs"
+        >
+          Just news. No bullshit.
+        </p>
+        <div class="h-[1px] w-8 bg-subtext/30"></div>
+      </div>
+    </div>
+
+    <div class="w-full max-w-2xl relative group z-10">
+      <div
+        class="absolute inset-y-0 left-0 flex items-center pl-6 pointer-events-none"
+      >
+        <i
+          class="fas fa-terminal text-subtext text-sm group-focus-within:text-accent transition-colors"
+        ></i>
+      </div>
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Type keyword..."
+        class="w-full pl-12 pr-6 py-5 bg-surface rounded-xl shadow-2xl shadow-black/50 border border-white/10 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all text-lg font-mono placeholder:text-subtext/50"
+        autocomplete="off"
+      />
+      <div class="absolute inset-y-0 right-4 flex items-center">
+        <kbd
+          class="hidden md:inline-block px-2 py-1 bg-white/5 text-subtext text-[10px] rounded font-mono border border-white/5"
+          >ENTER</kbd
+        >
+      </div>
+    </div>
+
+    <div id="spinner" class="hidden mt-12">
+      <div class="flex flex-col items-center gap-3">
+        <div
+          class="w-6 h-6 border-2 border-surface border-t-accent rounded-full animate-spin"
+        ></div>
+        <span class="text-xs text-subtext font-mono animate-pulse"
+          >FETCHING_DATA...</span
+        >
+      </div>
+    </div>
+
+    <div
+      id="searchResults"
+      class="w-full max-w-4xl mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 pb-20"
+    ></div>
+
+    <div
+      class="fixed bottom-0 w-full bg-gradient-to-t from-bg via-bg to-transparent h-24 pointer-events-none"
+    ></div>
+
+    <script src="function.js"></script>
+  </body>
+</html>
